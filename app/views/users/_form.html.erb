@@ -1,0 +1,23 @@
+<%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+<p>
+  <%= myVar.label 'First Name' %></br>
+<%= myVar.text_field :firstname%>
+</p>
+<p>
+  <%= myVar.label 'Last Name' %></br>
+<%= myVar.text_field :lastname%>
+</p>
+<p>
+  <%= myVar.label :email %></br>
+<%= myVar.text_field :email%>
+</p>
+
+<p>
+<%= myVar.label :password %></br>
+<%= myVar.password_field :password %>
+</p>
+
+
+
+<%= myVar.submit (@user.new_record? ? "Sign up" : "Update it Man") %>
+<% end %>

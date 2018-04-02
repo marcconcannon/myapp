@@ -1,0 +1,1487 @@
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (27.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Users (20180402115041)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Users (20180402115041)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "avitar" character varying, "customer_id" integer, "is_admin" boolean, "is_owner" boolean, "created_at" timestamp)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402115041"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Company (20180402115053)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "name" character varying, "domain" character varying, "plan_id" integer, "plan_modified_date" timestamp, "old_plan_id" character varying, "old_plan_modified_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402115053"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Plan (20180402115106)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "plans" ("id" bigserial primary key, "name" character varying, "type" integer, "term" integer)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402115106"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Projects (20180402115131)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "description" character varying, "customer_id" character varying, "type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402115131"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UsersToProjects (20180402123100)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users_to_projects" ("id" bigserial primary key, "project_id" integer, "user_id" integer)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402123100"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-02 12:38:27.283283"], ["updated_at", "2018-04-02 12:38:27.283283"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-02 14:17:24 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 25ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:17:30 +0100
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:22:16 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (17.1ms)
+  Rendered users/new.html.erb within layouts/application (20.6ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<User:0x00007fb386dca550>):
+    1: <%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    2: <p>
+    3:   <%= myVar.label :Nickname %></br>
+    4: <%= myVar.text_field :username%>
+    5: </p>
+    6: <p>
+    7:   <%= myVar.label :email %></br>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb__1987659866513689833_70204519416420'
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__1987659866513689833_70204519416420'
+app/views/users/new.html.erb:10:in `_app_views_users_new_html_erb__3632401182351140817_70204535325460'
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:25:58 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 804ms (Views: 800.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:29:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zgpzKwUl4+cnxjMh4riFIWJnNc1Y1y6gFp0ZsPeQgT8dlijFjzJwtbXTcZnoowa4/prjnlojKCwwnBZEE4wr/g==", "user"=>{"first_name"=>"Marc", "last_name"=>"Conc", "email"=>"test1@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up time"}
+Unpermitted parameters: :first_name, :last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "test1@here.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "test1@here.com"], ["password_digest", "$2a$10$MxDicJz1Nb/0Gl8p8KYAGeCBKooU9gCiTt6Joydv8xaSWpAJE1sHa"], ["created_at", "2018-04-02 13:29:49.536560"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 239ms (ActiveRecord: 3.6ms)
+
+
+  
+NameError (undefined local variable or method `articles_path' for #<UsersController:0x00007fb3864099d0>):
+  
+app/controllers/users_controller.rb:20:in `create'
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:34:20 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 45ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:34:36 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k7EyQ9aQiLGkXWgOGLGsQW+uIxSWlXvj3EVNHIZ8gRlALWmtXIcb4zZIKrYSqi/Y81P1R5RhfW/6RELoYmAr2A==", "user"=>{"first_name"=>"tom", "last_name"=>"browne", "email"=>"tb@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up time"}
+Unpermitted parameters: :first_name, :last_name
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "tb@here.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 101ms (Views: 20.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-02 14:39:54 +0100
+Processing by UsersController#index as HTML
+Completed 406 Not Acceptable in 120ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (UsersController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.6) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:40:03 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 39ms (Views: 21.0ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:40:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GBhC0r0Y+o8lHG7kgVIx1cdbRTI66DMNy2vJE4XnAHbLhBk8Nw9p3bcJLFyLSbJMW6aTYTgcNYHtasbnYfuqtw==", "user"=>{"firstname"=>"test", "lastname"=>"test", "email"=>"test@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@here.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 103ms (Views: 29.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:44:30 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PuRwOQGSI3+7JXQ0XslTyphgkA8f6anrrxENyNUDkRPteCvXi4WwLSkwNoxU0tBTBJ1GXB0dr2eJEAI8MR870g==", "user"=>{"firstname"=>"help", "lastname"=>"me", "email"=>"test@herew.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@herew.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "test@herew.com"], ["password_digest", "$2a$10$fb87IR1kuUbm1IFHJEepI.ftHE/YYzvbbCY3eDhpxZy4ZqjVPGqlm"], ["created_at", "2018-04-02 13:44:31.009087"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 87ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:44:31 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:46:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R05PZGLK4ytGwDxFZMzQcgYsqZ2T6w04OA53mraCk7SU0hSK6N1wedTVfv1u11PrmtF/zpEfC7QeD3huUp45dQ==", "user"=>{"firstname"=>"ttt", "lastname"=>"sss", "email"=>"samd@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "samd@here.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "samd@here.com"], ["password_digest", "$2a$10$vu4FrFZpiR9hTQRP5Kvc0.LI05TFdtiNk.o4IKIB0NWjFFzzKZc.u"], ["created_at", "2018-04-02 13:46:53.590124"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 67ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:46:53 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:54:02 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 40ms (Views: 21.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:54:22 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8IH6dDXVJFufJQksCf122ibzfg2lH1qD8qp3qWARDeojHaGav8K3CQ0wS5QD5vVDug6oXqfrXA/Uq3hdhA2nKw==", "user"=>{"firstname"=>"tom", "lastname"=>"brown", "email"=>"sss@gmak.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sss@gmak.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 91ms (Views: 20.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:54:38 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k0et8ElQ0tl1jsLcdiHu1CNBaDV9ObIP8iXzZIAiRqlA2/Yew0dBi+ebgGR8Om1Nv7y+Zn/NtIPUJPyQZD7saA==", "user"=>{"firstname"=>"wwww", "lastname"=>"www", "email"=>"sss@gmak.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sss@gmak.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 87ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-02 14:58:49 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 406 Not Acceptable in 132ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (UsersController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.6) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-04-02 14:58:57 +0100
+Processing by UsersController#index as HTML
+Completed 406 Not Acceptable in 117ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (UsersController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.6) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 14:59:08 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (14.3ms)
+  Rendered users/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 230ms (Views: 196.1ms | ActiveRecord: 11.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 14:59:22 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxKY6QqdRHwA1D/2d8mfJEABKWE02F0JI+TUcIuvV1zwjsMHgIrXLpLBfU590hy93Pz/MjYsW4UF5duEb7P9nQ==", "user"=>{"firstname"=>"tom", "lastname"=>"brown", "email"=>"madddd@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "madddd@here.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 92ms (Views: 20.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:00:57 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.9ms)
+  Rendered users/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 59ms (Views: 37.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:01:24 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7F/0lIrsqeD6VX+shtck17inKOyHDHakShlhlETrSy4/w696APs6smhAPRSMzKdOJFr+v4X4cChsGG5goPfh7w==", "user"=>{"firstname"=>"hipo", "lastname"=>"postumous", "email"=>"osjdfl@kjf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "osjdfl@kjf.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "osjdfl@kjf.com"], ["password_digest", "$2a$10$lTjMyAD2.opHsrl57EcYfeeulpbsMVa3/4Kb/mxqss8575IaD8H2y"], ["created_at", "2018-04-02 14:01:24.970540"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 67ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:01:24 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.8ms)
+  Rendered users/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:02:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4liWp3M4FL4UizxJhmbR28RclcI3tBWLrWrda++Vdo4xxM1J+S+H7IaefvGMfVJCWKFDkTVAEweLa9KfC4ncTw==", "user"=>{"firstname"=>"fsdfa", "lastname"=>"asdasd", "email"=>"asdasd@hre.ovv", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: :firstname, :lastname
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "asdasd@hre.ovv"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 109ms (Views: 22.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:02:34 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 40ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:02:44 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GWueMI+py+tELyG/xNw3pxbbdM54wBUJuDv3Yw6/LC/K98XeBb5YudY6YwfOx7Q+iiainXo0E4WeOviX6qOG7g==", "user"=>{"firstname"=>"www", "lastname"=>"wwww", "email"=>"www@www.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "www@www.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "www@www.com"], ["password_digest", "$2a$10$ttWhc52f/5LVdvmWcLPkCe1sVW/buSmjLJwZnTqTkzlZXs35uFR0S"], ["firstname", "www"], ["lastname", "wwww"], ["created_at", "2018-04-02 14:02:44.098278"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 68ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:02:44 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:13:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oHrrt8sFu5FnfrbaRr+FFE8761RAI1aSVaoLBL/0Ehlz5rBZQRIow/Vr9GJMpAaN08Y9B0LXUB5zqwTwW+i42A==", "user"=>{"firstname"=>"ssss", "lastname"=>"ssss", "email"=>"sssssss@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 4.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "companies" does not exist
+LINE 8:                WHERE a.attrelid = '"companies"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
+                     c.collname, col_description(a.attrelid, a.attnum) AS comment
+                FROM pg_attribute a
+                LEFT JOIN pg_attrdef d ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+                LEFT JOIN pg_type t ON a.atttypid = t.oid
+                LEFT JOIN pg_collation c ON a.attcollation = c.oid AND a.attcollation <> t.typcollation
+               WHERE a.attrelid = '"companies"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  
+app/controllers/users_controller.rb:60:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:18:58 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oHrrt8sFu5FnfrbaRr+FFE8761RAI1aSVaoLBL/0Ehlz5rBZQRIow/Vr9GJMpAaN08Y9B0LXUB5zqwTwW+i42A==", "user"=>{"firstname"=>"ssss", "lastname"=>"ssss", "email"=>"sssssss@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant UsersController::Company):
+  
+app/controllers/users_controller.rb:60:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:20:30 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oHrrt8sFu5FnfrbaRr+FFE8761RAI1aSVaoLBL/0Ehlz5rBZQRIow/Vr9GJMpAaN08Y9B0LXUB5zqwTwW+i42A==", "user"=>{"firstname"=>"ssss", "lastname"=>"ssss", "email"=>"sssssss@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 83ms (ActiveRecord: 3.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Customer with 'id'=here.com):
+  
+app/controllers/users_controller.rb:60:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:22:57 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oHrrt8sFu5FnfrbaRr+FFE8761RAI1aSVaoLBL/0Ehlz5rBZQRIow/Vr9GJMpAaN08Y9B0LXUB5zqwTwW+i42A==", "user"=>{"firstname"=>"ssss", "lastname"=>"ssss", "email"=>"sssssss@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sssssss@here.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "sssssss@here.com"], ["password_digest", "$2a$10$IDlDnkgxd3EQZobBhZ8NTuI22viQXI87jMUNx8IRNj05VcFmeCpz6"], ["firstname", "ssss"], ["lastname", "ssss"], ["created_at", "2018-04-02 14:22:58.055527"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 88ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:22:58 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:23:31 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zzVMoiJXS3/GeANsFcA8URsqzqSLk92fmNhZBl95/y4cqRdMqEDYLVRtQdQf27/Ih9cY94ln2xO+2Vbyu2VV7w==", "user"=>{"firstname"=>"tom", "lastname"=>"dunne", "email"=>"madddddd@here.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "madddddd@here.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "madddddd@here.com"], ["password_digest", "$2a$10$Dx80Z8t19dwNkNm0Scq2Ruvproowgs8pQhJq703zDrtc1/oTQmOUK"], ["firstname", "tom"], ["lastname", "dunne"], ["created_at", "2018-04-02 14:23:31.562203"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 78ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:23:31 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:29:45 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vvVGxiLUtfhUO0nytMoXhGkhDsIq7wTgjcDohldSEbltaR0oqMMmqsYuC0q+0ZQd9dzYkSgbAmyrwedys067eA==", "user"=>{"firstname"=>"ssd", "lastname"=>"sdfwdf", "email"=>"werdc@ggg.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "ggg.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "werdc@ggg.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "werdc@ggg.com"], ["password_digest", "$2a$10$la80acue9fzXuaVut5FcTeqVLX30R8.UnTAzrLDWgMxT35zUD1yWG"], ["firstname", "ssd"], ["lastname", "sdfwdf"], ["created_at", "2018-04-02 14:29:45.721960"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 92ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 15:29:45 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:38:27 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "dfdfdf.com"]]
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 1.8ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/users_controller.rb:64:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:41:03 +0100
+  
+SyntaxError (/Users/marcconcannon/Desktop/RubyApplications/myTrainingApp1/myapp/app/controllers/users_controller.rb:60: syntax error, unexpected ':', expecting keyword_end
+  domain: @user.email.split("@").last
+        ^):
+  
+app/controllers/users_controller.rb:60: syntax error, unexpected ':', expecting keyword_end
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:41:27 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "domain"]]
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 5.3ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/users_controller.rb:64:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 15:53:34 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "dfdfdf.com"]]
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'params' for Customer.):
+  
+app/controllers/users_controller.rb:64:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:04:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "dfdfdf.com"]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.4ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/users_controller.rb:64:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:07:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "dfdfdf.com"]]
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.3ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/users_controller.rb:64:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:09:26 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVIbu2vsam2JIQPsBp8DZo8zXVO9V+4XEIV9P3BiYhP2zkBV4fv5Pxs0QVQMhID/E86LAL+j6Js2hHLLlH7I0g==", "user"=>{"firstname"=>"dddd", "lastname"=>"sssss", "email"=>"asdasd@dfdfdf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "dfdfdf.com"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:09:26.362257"], ["updated_at", "2018-04-02 15:09:26.362257"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "asdasd@dfdfdf.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "asdasd@dfdfdf.com"], ["password_digest", "$2a$10$JW26.z6rBG3cI2kq9/.Zwu35Qfkr9NNdutXhnrWNAaE9.JWyYKoca"], ["firstname", "dddd"], ["lastname", "sssss"], ["created_at", "2018-04-02 15:09:26.372586"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 99ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:09:26 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.7ms)
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:10:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iEq4F9ElF/QbhzCi3FCHFenJj4Ioo4z5MG5eYa0sE9Zb1uP5WzKEpomSchrWSwSMdTRZ0SpXinUWb1GVSTC5Fw==", "user"=>{"firstname"=>"eeee", "lastname"=>"eee", "email"=>"eee@ffff.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.9ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "ffff.com"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:10:23.548016"], ["updated_at", "2018-04-02 15:10:23.548016"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "eee@ffff.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "eee@ffff.com"], ["password_digest", "$2a$10$.312r2r7hjPUovc7EFkCcOZtdv.8NHjbME..FEaPr04SuLK7DMzfe"], ["firstname", "eeee"], ["lastname", "eee"], ["created_at", "2018-04-02 15:10:23.551750"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 72ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:10:23 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:12:39 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 40ms (Views: 22.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:12:51 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SNZbHo7cIgJUMnc5K5pYx7lR6OKgXgtgoGnaav0dyVybSgDwBMuxUMYnNYEhgdteJaw+saKqDeyGaNWeGQFjnQ==", "user"=>{"firstname"=>"ssss", "lastname"=>"aaa", "email"=>"asasa@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmail.com"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:12:51.219140"], ["updated_at", "2018-04-02 15:12:51.219140"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "asasa@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "asasa@gmail.com"], ["password_digest", "$2a$10$4iS/WxJ5Rf0HVQ.gUkCO5.vfO3x.ViM/nryBq5huvr6CFI8L1QEr."], ["firstname", "ssss"], ["lastname", "aaa"], ["created_at", "2018-04-02 15:12:51.222417"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 82ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:12:51 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:13:27 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kFji7djsixnrb/jOrSaKPfeZYaRzxR6SA832JElup4xDxLkDUvsYS3l6unanPQmka2S393ExGB4lzPnQrXINTQ==", "user"=>{"firstname"=>"sas", "lastname"=>"asdas", "email"=>"asdasd@hre.ovvd", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "hre.ovvd"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:13:27.242000"], ["updated_at", "2018-04-02 15:13:27.242000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "asdasd@hre.ovvd"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "asdasd@hre.ovvd"], ["password_digest", "$2a$10$YmERlc8FZiGYIkaoSj6rjO6RunG3PAs/Ek1mD1CdcUljwUk5.3Mra"], ["firstname", "sas"], ["lastname", "asdas"], ["created_at", "2018-04-02 15:13:27.246231"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 99ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:13:27 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:15:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4SoWQ/ZrimBnrtBMFgLchfV1SwxmMs0I19p09Ne8mkIytk2tfHwZMvW7kvQcGV8caYidX2TGy4Tx23sAM6Awgw==", "user"=>{"firstname"=>"sdfsd", "lastname"=>"sdfsdfdsf", "email"=>"sdd@gmil.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmil.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:15:52.438435"], ["updated_at", "2018-04-02 15:15:52.438435"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sdd@gmil.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "sdd@gmil.com"], ["password_digest", "$2a$10$YuylkFHbaBgDzLy/0/J0ku64Y6mfXmzAUQUPIUdL/kJ5AtAu.Q6oi"], ["firstname", "sdfsd"], ["lastname", "sdfsdfdsf"], ["created_at", "2018-04-02 15:15:52.442657"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 94ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:15:52 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:22:35 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7ZGHWcGXqGWTGlLgdP8Od71QEHHu9BEizMJiRXywpNE+Ddy3S4A7NwEPEFh+5I3uIa3GIuwAF67qw22xmKwOEA==", "user"=>{"firstname"=>"wer", "lastname"=>"werwq", "email"=>"werwe@ggg.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "ggg.com"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:22:36.028858"], ["updated_at", "2018-04-02 15:22:36.028858"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "werwe@ggg.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "werwe@ggg.com"], ["password_digest", "$2a$10$HNzgEhgQcO1RQl1TE5TMWuJjEb7pzWe.Bhacw9x5wa.uya083ARY6"], ["firstname", "wer"], ["lastname", "werwq"], ["created_at", "2018-04-02 15:22:36.032255"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 95ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:22:36 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:27:08 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.7ms)
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 50ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:27:19 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qFTVST8RRxBabJ2Bvnxq+S9hLkc/cJuApyRMyhqS8597yI6ntQbUQsh53zm0Z+lgs5z4FD2EnQyBJUM+/o5ZXg==", "user"=>{"firstname"=>"sss", "lastname"=>"sdf", "email"=>"jjjj@gerf.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gerf.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:27:19.907437"], ["updated_at", "2018-04-02 15:27:19.907437"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "jjjj@gerf.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jjjj@gerf.com"], ["password_digest", "$2a$10$.cOWTeAbuyjoAOc1SKzhFuDduG8ntJXV0xh8xgQ2X3LYehYORlai."], ["firstname", "sss"], ["lastname", "sdf"], ["created_at", "2018-04-02 15:27:19.911135"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 85ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:27:19 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:32:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fKlDrWf41UDVdRp8LpUAkBC7oR/07s/SU2h+INru3nyvNRhD7e9GEkdgWMQkjoMJjEZ3TPYayV51aXHUPvJ0vQ==", "user"=>{"firstname"=>"sdf", "lastname"=>"wqed", "email"=>"qweee@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmail.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:32:33.484505"], ["updated_at", "2018-04-02 15:32:33.484505"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "qweee@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "qweee@gmail.com"], ["password_digest", "$2a$10$usDN5ivcGLrJLITIemsB.eHwiaVjqzAExo9aVKDTSt7JKRqSq5boe"], ["firstname", "sdf"], ["lastname", "wqed"], ["created_at", "2018-04-02 15:32:33.488913"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 102ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:32:33 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.6ms)
+  Rendered users/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:35:30 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dw/D2HQXikkUxDHpk1EpRR9Ltm551b9gE6GUP98KKcfck5g2/gAZG4bRc1GZSqrcg7ZgPXshuew1oJvLOxaDBg==", "user"=>{"firstname"=>"sdf", "lastname"=>"ssssss", "email"=>"sdf@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmail.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:35:31.005832"], ["updated_at", "2018-04-02 15:35:31.005832"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sdf@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "sdf@gmail.com"], ["password_digest", "$2a$10$Xf.8hZbgEohbf8XMxRdg1elsy/T3fkTCN7L71OLgfe.3ceKov7Az."], ["firstname", "sdf"], ["lastname", "ssssss"], ["created_at", "2018-04-02 15:35:31.009072"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 90ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:35:31 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:38:29 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NELFmtEyiGm0FDU2hTLLl2AJVOI4rfm0XkO/aSBXbQ7n3p50WyUbOyYBd46PKUgO/PSCsTpZ/zh4QrCdxEvHzw==", "user"=>{"firstname"=>"", "lastname"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" IS NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 57ms (Views: 23.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:38:39 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5BXUGmzMH4FbIFhw+1nvnAPaXsLvKDfXPRsOb/s0Cuc3iY/05tuM08k1GsjxQmwFnyeIke3cMVsbGgGbHyigJg==", "user"=>{"firstname"=>"Wayne", "lastname"=>"Hampton", "email"=>"wolojytu@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:38:39.466812"], ["updated_at", "2018-04-02 15:38:39.466812"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "wolojytu@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "wolojytu@mailinator.net"], ["password_digest", "$2a$10$LgkK/0LTl/2oIg4GCIM9beHvKyBu/lGdEb/KUxsVmmBbVPFa65byG"], ["firstname", "Wayne"], ["lastname", "Hampton"], ["created_at", "2018-04-02 15:38:39.469602"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 70ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:38:39 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:41:47 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6o3c1rBEsaDfrn6Y7QqDZ5mm6XZ7ZuAN5gtY1bnTF+s5EYc4OlMi8k27PCDnEQD+BVs/JXmS5oHAClchXc+9Kg==", "user"=>{"firstname"=>"Reese", "lastname"=>"Nash", "email"=>"qijader@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `createNew' for #<Class:0x00007fa5695b5200>
+Did you mean?  create
+               create!):
+  
+app/controllers/users_controller.rb:67:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:42:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6o3c1rBEsaDfrn6Y7QqDZ5mm6XZ7ZuAN5gtY1bnTF+s5EYc4OlMi8k27PCDnEQD+BVs/JXmS5oHAClchXc+9Kg==", "user"=>{"firstname"=>"Reese", "lastname"=>"Nash", "email"=>"qijader@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `createNew' for #<Class:0x00007fa568ce0878>
+Did you mean?  create
+               create!):
+  
+app/controllers/users_controller.rb:67:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:51:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6o3c1rBEsaDfrn6Y7QqDZ5mm6XZ7ZuAN5gtY1bnTF+s5EYc4OlMi8k27PCDnEQD+BVs/JXmS5oHAClchXc+9Kg==", "user"=>{"firstname"=>"Reese", "lastname"=>"Nash", "email"=>"qijader@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-04-02 15:51:10.244669"], ["updated_at", "2018-04-02 15:51:10.244669"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "qijader@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "qijader@mailinator.net"], ["password_digest", "$2a$10$PnlCDVFsUTgBQwDHcIdaLOq6A64bxFLqeyvGt41tCBH56EIbHV3Cu"], ["firstname", "Reese"], ["lastname", "Nash"], ["created_at", "2018-04-02 15:51:10.249090"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 97ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:51:10 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:52:38 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F6Vh7iEO3m9cWa6lZG6C3V0kPikI5jXwMJ81fvwsXwnEOToAqxlNPc5M7B1udQFEwdnoegoSM3wWnjqKGDD1yA==", "user"=>{"firstname"=>"Rylee", "lastname"=>"Burns", "email"=>"fycalijiqu@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "fycalijiqu@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "fycalijiqu@mailinator.com"], ["password_digest", "$2a$10$fH/fq4a3lkMCB7uTNz535ezknhkAYOYkoj.IerhJg5UHpW5MpqRTa"], ["firstname", "Rylee"], ["lastname", "Burns"], ["created_at", "2018-04-02 15:52:38.774491"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 79ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:52:38 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:54:26 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FZg+GL0YDShGx+jeB93kL20p7s4hS8OBkLqt2fcPnHLGBGX2Nw+eetTSqmYNxme28dQ4nSO/xQ22u6ItExM2sw==", "user"=>{"firstname"=>"Eagan", "lastname"=>"Oliver", "email"=>"liweqy@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "liweqy@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "liweqy@mailinator.com"], ["password_digest", "$2a$10$QpSYkSdPP6hUJgffb6oJau9ps5CHYXqHE5z0FoT.B7B5aKwevgS8W"], ["firstname", "Eagan"], ["lastname", "Oliver"], ["created_at", "2018-04-02 15:54:26.682379"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 84ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:54:26 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:55:50 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nayzoD34LsGZaYQ8crjl5YXOSDhGOeXTevnctuK6lkhOMOhOt++9kwt8xoR4o2Z8GTOea0TN419c+NNCBqY8iQ==", "user"=>{"firstname"=>"Dana", "lastname"=>"Franco", "email"=>"qeqifywipi@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "qeqifywipi@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "qeqifywipi@mailinator.net"], ["password_digest", "$2a$10$2NPuy8t8vahCnfAB1VIOsejOZsoWTl25V1ppxS6DU8sRmlnX.Ry86"], ["firstname", "Dana"], ["lastname", "Franco"], ["created_at", "2018-04-02 15:55:50.721761"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 89ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:55:50 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:56:56 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F4FCep7UfIRojAXMwVh/MuG1nB+fGwnvf/nUvfMprYjEHRmUFMPv1vqZR3TLQ/yrfUhKTJ3vD2NZ+NtJFzUHSQ==", "user"=>{"firstname"=>"Nyssa", "lastname"=>"Melendez", "email"=>"juzaranoji@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "juzaranoji@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "juzaranoji@mailinator.com"], ["password_digest", "$2a$10$A4.sonY1GtZzFHAx2m89zOqKgzr9BYwHeKvLaIIXT/5nNqrz.jS9G"], ["firstname", "Nyssa"], ["lastname", "Melendez"], ["created_at", "2018-04-02 15:56:56.454460"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 88ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:56:56 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:58:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"30ZxLCkFNxxZQ3NMD45yMS6UYbmggyNWo2wYM/ywFwcM2irCoxKkTstWMfQFlfGosmm36qJ3JdqFbRfHGKy9xg==", "user"=>{"firstname"=>"Tate", "lastname"=>"Hobbs", "email"=>"fetacaj@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "fetacaj@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "fetacaj@mailinator.net"], ["password_digest", "$2a$10$HeX7wr163wS.yXjZJo4IheRxw3xYMlejnZZdANt2kL/ZihH6D6ZTW"], ["firstname", "Tate"], ["lastname", "Hobbs"], ["created_at", "2018-04-02 15:58:33.369863"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 101ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 16:58:33 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 16:59:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7/0V308KGqQduafEhIIjJic6OzcXrFjelqwKHnLQicg8YU4xxR2J9o+s5XyOmaC/u8ftZBVYXlKwrQXqlswjCQ==", "user"=>{"firstname"=>"Kirk", "lastname"=>"Dyer", "email"=>"jajexupyqy@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.4ms)
+
+
+  
+NameError (uninitialized constant UsersController::CustomerX):
+  
+app/controllers/users_controller.rb:67:in `companyDetails'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:01:30 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7/0V308KGqQduafEhIIjJic6OzcXrFjelqwKHnLQicg8YU4xxR2J9o+s5XyOmaC/u8ftZBVYXlKwrQXqlswjCQ==", "user"=>{"firstname"=>"Kirk", "lastname"=>"Dyer", "email"=>"jajexupyqy@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "domain", "plan_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "mailinator.net"], ["domain", "mailinator.net"], ["plan_id", 1], ["created_at", "2018-04-02 16:01:30.767191"], ["updated_at", "2018-04-02 16:01:30.767191"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "jajexupyqy@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jajexupyqy@mailinator.net"], ["password_digest", "$2a$10$FRNjiDSRhZQ2LN47jTGQxO0lltWex2Y59LXhB4IOHRmYgDLVwW8e2"], ["firstname", "Kirk"], ["lastname", "Dyer"], ["created_at", "2018-04-02 16:01:30.770693"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 97ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 17:01:30 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.1ms)
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:01:34 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r8Qnvd3VajHdm4RBpOcXZKAonNGPJ2KkFHjBEO9uKi98WHxTV8L5Y0+Oxvmu/JT9PNVKgo3TZCgyec7kC3KA7g==", "user"=>{"firstname"=>"Zachary", "lastname"=>"Poole", "email"=>"rabaw@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "domain", "plan_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "mailinator.com"], ["domain", "mailinator.com"], ["plan_id", 1], ["created_at", "2018-04-02 16:01:34.497272"], ["updated_at", "2018-04-02 16:01:34.497272"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "rabaw@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "rabaw@mailinator.com"], ["password_digest", "$2a$10$Wbs9qq4p.6vm/AqY39F2M.ubUrrmigNIZMQ8cAXLQ5QYZGiK6jjaS"], ["firstname", "Zachary"], ["lastname", "Poole"], ["created_at", "2018-04-02 16:01:34.500249"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 73ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 17:01:34 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:08:07 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Roanna", "lastname"=>"Hinton", "email"=>"migoxafa@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `customer=' for #<User:0x00007fa56164ee58>
+Did you mean?  customer_id=
+               customer_id):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:09:03 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Roanna", "lastname"=>"Hinton", "email"=>"migoxafa@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Customer(#70174192158500) expected, got true which is an instance of TrueClass(#70174133113660)):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:10:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Roanna", "lastname"=>"Hinton", "email"=>"migoxafa@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:10:51 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 10.4ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:15:42 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:16:25 +0100
+  
+SyntaxError (/Users/marcconcannon/Desktop/RubyApplications/myTrainingApp1/myapp/app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting keyword_end
+  @user.customer => @customer.id
+                 ^~):
+  
+app/controllers/users_controller.rb:18: syntax error, unexpected =>, expecting keyword_end
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:18:12 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 6.7ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Customer(#70283610210100) expected, got true which is an instance of TrueClass(#70283587662680)):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:28:20 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `user=' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:30:21 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `user=' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:34:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:36:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:37:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `id' for true:TrueClass):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:38:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.4ms)
+
+
+  
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+NoMethodError (undefined method `id' for #<Customer::ActiveRecord_Relation:0x00007fd859df3de0>
+Did you mean?  ids):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:39:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+wCA2U01OeZ12Yp3uyCX+4mN8eovMEBBQiVwKMBb1QscFnt7yNHtQvCJJHU9wHGctvhlKpIx40jCZo0Rx3FlQ==", "user"=>{"firstname"=>"Fredericka", "lastname"=>"Baxter", "email"=>"nygodoneme@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "nygodoneme@mailinator.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (7.4ms)
+  Rendered users/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 328ms (Views: 232.0ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:42:29 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rjk0F5zqC644KpHQC/cj6OuHaVI2Mr68ErUut16yVxOVpW/5Fv2Y/Ko/02gB7KBxd3q/ATTGuDA0tCFDuq790g==", "user"=>{"firstname"=>"Nissim", "lastname"=>"Glover", "email"=>"leqixag@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "leqixag@mailinator.net"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 91ms (Views: 22.4ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:46:07 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M9mHXVE2zo973rLKfesfjSj4w7MesGP/slwHiwkET1jgRdyz2yFd3enL8HJ38JwUtAUV4BxEZXOUXQh/7RjlmQ==", "user"=>{"firstname"=>"Melvin", "lastname"=>"Crosby", "email"=>"sihivoc@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `firtname' for #<User:0x00007fd85b67bea8>
+Did you mean?  firstname
+               firstname=
+               firstname?):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:47:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M9mHXVE2zo973rLKfesfjSj4w7MesGP/slwHiwkET1jgRdyz2yFd3enL8HJ38JwUtAUV4BxEZXOUXQh/7RjlmQ==", "user"=>{"firstname"=>"Melvin", "lastname"=>"Crosby", "email"=>"sihivoc@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "sihivoc@mailinator.net"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 117ms (Views: 21.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:50:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPbq0L783HTdm3YtDOAkOPepqIS17PuxUPG+y1ObCFi/arE+NOtPJk+ONJUG+6eha1R+17cY/T128LE/t4eimQ==", "user"=>{"firstname"=>"Colby", "lastname"=>"Nguyen", "email"=>"nakacanilo@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:50:40 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPbq0L783HTdm3YtDOAkOPepqIS17PuxUPG+y1ObCFi/arE+NOtPJk+ONJUG+6eha1R+17cY/T128LE/t4eimQ==", "user"=>{"firstname"=>"Colby", "lastname"=>"Nguyen", "email"=>"nakacanilo@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 3.7ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Customer(#70283590746760) expected, got #<ActiveRecord::Relation [#<Customer id: 13, name: "mailinator.com", domain: "mailinator.com", plan_id: 1, plan_modified_date: nil, old_plan_id: nil, old_plan_modified_date: nil, created_at: "2018-04-02 16:01:34", updated_at: "2018-04-02 16:01:34">]> which is an instance of Customer::ActiveRecord_Relation(#70283590651380)):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 17:57:31 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPbq0L783HTdm3YtDOAkOPepqIS17PuxUPG+y1ObCFi/arE+NOtPJk+ONJUG+6eha1R+17cY/T128LE/t4eimQ==", "user"=>{"firstname"=>"Colby", "lastname"=>"Nguyen", "email"=>"nakacanilo@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.5ms)
+
+
+  
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+NoMethodError (undefined method `id' for #<Customer::ActiveRecord_Relation:0x00007fd860b086d8>
+Did you mean?  ids):
+  
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 18:04:26 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPbq0L783HTdm3YtDOAkOPepqIS17PuxUPG+y1ObCFi/arE+NOtPJk+ONJUG+6eha1R+17cY/T128LE/t4eimQ==", "user"=>{"firstname"=>"Colby", "lastname"=>"Nguyen", "email"=>"nakacanilo@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Customer(#70283629206120) expected, got #<ActiveRecord::Relation [#<Customer id: 13, name: "mailinator.com", domain: "mailinator.com", plan_id: 1, plan_modified_date: nil, old_plan_id: nil, old_plan_modified_date: nil, created_at: "2018-04-02 16:01:34", updated_at: "2018-04-02 16:01:34">]> which is an instance of Customer::ActiveRecord_Relation(#70283629202620)):
+  
+app/controllers/users_controller.rb:31:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 18:08:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bPbq0L783HTdm3YtDOAkOPepqIS17PuxUPG+y1ObCFi/arE+NOtPJk+ONJUG+6eha1R+17cY/T128LE/t4eimQ==", "user"=>{"firstname"=>"Colby", "lastname"=>"Nguyen", "email"=>"nakacanilo@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "nakacanilo@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "created_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "nakacanilo@mailinator.com"], ["password_digest", "$2a$10$sDf23SHMSiv4JzjSICI6m.DYJapF1MrMjPyTZzmXw3gynMmyiYrD2"], ["firstname", "Colby"], ["lastname", "Nguyen"], ["customer_id", 13], ["created_at", "2018-04-02 17:08:00.804704"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 98ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 18:08:00 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
