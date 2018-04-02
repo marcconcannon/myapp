@@ -1485,3 +1485,277 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:04:51 +0100
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (16.9ms)
+  Rendered users/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 275ms (Views: 232.7ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:04:57 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VJGaiCS1VoVIbfXR7H0cqDCm4OwlM/g5xzxsqhFEC4SHDcFmrqLF19p4t2nmZp8xrFs2vyfH/rXhPWNe9VihRQ==", "user"=>{"firstname"=>"Heather", "lastname"=>"Wiggins", "email"=>"hylypohoqy@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.net"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 11.6ms)
+
+
+  
+NoMethodError (undefined method `owner=' for #<User:0x00007ff2953222f8>
+Did you mean?  is_owner=):
+  
+app/controllers/users_controller.rb:32:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:05:37 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VJGaiCS1VoVIbfXR7H0cqDCm4OwlM/g5xzxsqhFEC4SHDcFmrqLF19p4t2nmZp8xrFs2vyfH/rXhPWNe9VihRQ==", "user"=>{"firstname"=>"Heather", "lastname"=>"Wiggins", "email"=>"hylypohoqy@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.net"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (6.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "hylypohoqy@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (12.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "hylypohoqy@mailinator.net"], ["password_digest", "$2a$10$F0xSCGQR5IZEh8DiYCQ6Z.cM9NLlv.W0wX0NsS3DkJze6WNWPP/Sq"], ["firstname", "Heather"], ["lastname", "Wiggins"], ["customer_id", 12], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:05:47.278901"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 153ms (ActiveRecord: 33.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:05:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:07:11 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RDkMi93NSHV/fjqeXnAExtgqmkWY5rMxkmyM4hRCn7SXpVdlV9rbJ+1reCZUa4dfRNdMFpoStb20bYMW8F41dQ==", "user"=>{"firstname"=>"tom", "lastname"=>"dunne", "email"=>"marc@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmail.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "domain", "plan_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "gmail.com"], ["domain", "gmail.com"], ["plan_id", 1], ["created_at", "2018-04-02 21:07:11.568255"], ["updated_at", "2018-04-02 21:07:11.568255"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "marc@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "marc@gmail.com"], ["password_digest", "$2a$10$BnJco1LWgavEGSBUZvGYZ.GQ2c7wapG/z7KZmqzKMWa2MRTA4PMHW"], ["firstname", "tom"], ["lastname", "dunne"], ["customer_id", 14], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:07:11.573925"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 73ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:07:11 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:07:47 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0bXnTbWDsoH7QFAsW8GtZXzOAluTElHtSgde1No+NeUCKbyjP5Qh02lVEpRR2i784DPUCJHmV2FsBlEgPiKfJA==", "user"=>{"firstname"=>"tomey", "lastname"=>"sulll", "email"=>"hotbot@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "gmail.com"]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "hotbot@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "hotbot@gmail.com"], ["password_digest", "$2a$10$2YqLdwHLrCIn1j2s4pT/qe8qE4HS8IpGwO7GYn4IGOFpYCGDKVReK"], ["firstname", "tomey"], ["lastname", "sulll"], ["customer_id", 14], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:07:47.884103"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 77ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:07:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:38:57 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (12.1ms)
+  Rendered users/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 222ms (Views: 191.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:39:04 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQQcibElFn7Js9M9z9kqDXbedCfAGwaZAq5DYFXoInbWmEdnOzKFLFumkYXFwqmU6iOidMLvABUkr0yUsfSItw==", "user"=>{"firstname"=>"Whitney", "lastname"=>"Alford", "email"=>"pigylojot@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 13.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column plans.customer_id does not exist
+LINE 1: SELECT  "plans".* FROM "plans" WHERE "plans"."customer_id" =...
+                                             ^
+: SELECT  "plans".* FROM "plans" WHERE "plans"."customer_id" = $1 LIMIT $2):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:40:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQQcibElFn7Js9M9z9kqDXbedCfAGwaZAq5DYFXoInbWmEdnOzKFLFumkYXFwqmU6iOidMLvABUkr0yUsfSItw==", "user"=>{"firstname"=>"Whitney", "lastname"=>"Alford", "email"=>"pigylojot@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.8ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 4.5ms)
+
+
+  
+NoMethodError (undefined method `plan' for #<Customer:0x00007fd0464fd058>
+Did you mean?  plan_id):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:42:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQQcibElFn7Js9M9z9kqDXbedCfAGwaZAq5DYFXoInbWmEdnOzKFLFumkYXFwqmU6iOidMLvABUkr0yUsfSItw==", "user"=>{"firstname"=>"Whitney", "lastname"=>"Alford", "email"=>"pigylojot@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 4.0ms)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: '1'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Plan.inheritance_column to use another column for that information.):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:46:59 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQQcibElFn7Js9M9z9kqDXbedCfAGwaZAq5DYFXoInbWmEdnOzKFLFumkYXFwqmU6iOidMLvABUkr0yUsfSItw==", "user"=>{"firstname"=>"Whitney", "lastname"=>"Alford", "email"=>"pigylojot@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: '1'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Plan.inheritance_column to use another column for that information.):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:49:36 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQQcibElFn7Js9M9z9kqDXbedCfAGwaZAq5DYFXoInbWmEdnOzKFLFumkYXFwqmU6iOidMLvABUkr0yUsfSItw==", "user"=>{"firstname"=>"Whitney", "lastname"=>"Alford", "email"=>"pigylojot@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.7ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "pigylojot@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "pigylojot@mailinator.com"], ["password_digest", "$2a$10$oC6kQ/gqsKDrbaLK7l61eOSAQPz//rqbVUzEkHDXAnsdOJolwpAQK"], ["firstname", "Whitney"], ["lastname", "Alford"], ["customer_id", 13], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:49:37.068040"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 87ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:49:37 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:50:28 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wdj2UqTBvBw/b4Ad3H2mAesQnH8H5712glM/IUzh+3CKRK28LtYvTq16wqXWZiWYd+1KLAUTu/qkUjDVqP1RsQ==", "user"=>{"firstname"=>"Vaughan", "lastname"=>"Frederick", "email"=>"tyly@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.com"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "tyly@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "tyly@mailinator.com"], ["password_digest", "$2a$10$pmPxORh.O1F.LdV9UwU5JeWN44SU/qSFJPGR0poQr27W9Qa2WHVUW"], ["firstname", "Vaughan"], ["lastname", "Frederick"], ["customer_id", 13], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:50:28.702453"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 82ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:50:28 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:51:41 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W+7UDfFqRdXd9cXy8Lh/t8QiTzX0s0gpzndLxutRzOuIco/je33Wh0/gh0r6o/wuWN+ZZvZHTqXodkQyD01mKg==", "user"=>{"firstname"=>"Scarlett", "lastname"=>"Carpenter", "email"=>"hyhyn@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.net"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 6.4ms)
+
+
+  
+NoMethodError (undefined method `plan' for #<Customer:0x00007fd044dbf1c0>
+Did you mean?  plan_id):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:54:41 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W+7UDfFqRdXd9cXy8Lh/t8QiTzX0s0gpzndLxutRzOuIco/je33Wh0/gh0r6o/wuWN+ZZvZHTqXodkQyD01mKg==", "user"=>{"firstname"=>"Scarlett", "lastname"=>"Carpenter", "email"=>"hyhyn@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.net"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "hyhyn@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "hyhyn@mailinator.net"], ["password_digest", "$2a$10$Lhqkk6v1v2VuNiaWROfaOOXydpCYPdoYrx7ri8lIfIF56rRnGzjF2"], ["firstname", "Scarlett"], ["lastname", "Carpenter"], ["customer_id", 12], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:54:41.648956"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 113ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:54:41 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:55:11 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LmeeOKkdJNaG6nfkE1MW0u/Fq0y7Pe3SuCIhafJ2nNX9+8XWIwq3hBT/NVwZSJVLczh9H7nJ616eIy6dFmo2FA==", "user"=>{"firstname"=>"Reuben", "lastname"=>"Logan", "email"=>"kacydif@mailinator.net", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."domain" = $1[0m  [["domain", "mailinator.net"]]
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.net"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "kacydif@mailinator.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "kacydif@mailinator.net"], ["password_digest", "$2a$10$DXEaMFZigcxe6l6F1NemXO8FgnVwn2kM9HsqbLIiBuJUJw9fPu4xe"], ["firstname", "Reuben"], ["lastname", "Logan"], ["customer_id", 12], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:55:11.827080"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 112ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:55:11 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-02 22:56:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0uQuXlOGZ09Xu6sHUz/CMO4IJ40bv9QbzbCUmZ4FKW8BeHWw2ZH0HcWu6b9ZJEGpcvXx3hlL0pfrsZttehmDrg==", "user"=>{"firstname"=>"Camille", "lastname"=>"Wilkins", "email"=>"qowagyca@mailinator.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.6ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."domain" = $1 ORDER BY "customers"."id" ASC LIMIT $2[0m  [["domain", "mailinator.com"], ["LIMIT", 1]]
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "qowagyca@mailinator.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "firstname", "lastname", "customer_id", "is_admin", "is_owner", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "qowagyca@mailinator.com"], ["password_digest", "$2a$10$TO3Xp1pKq3.dWT1na3Y0.OcxL.6sCanrJqgjqbCIdx4EE3QNYKSOO"], ["firstname", "Camille"], ["lastname", "Wilkins"], ["customer_id", 13], ["is_admin", "t"], ["is_owner", "t"], ["created_at", "2018-04-02 21:56:52.867836"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 106ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-02 22:56:52 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
