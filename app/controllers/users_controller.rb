@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     domain = @user.email.split('@').last
     if (@customer = Customer.where(domain: domain).first).present?
-    #  @customer = Customer.where(domain: domain)# we added an enrty in application GHTML wrapper to use this
+
     else
       @customer = Customer.new
       @customer.name = domain
