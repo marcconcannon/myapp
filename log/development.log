@@ -1759,3 +1759,371 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (29.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('7864839756650184315', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Users (20180402115041)
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `first_name` varchar(255), `last_name` varchar(255), `avitar` varchar(255), `customer_id` int, `is_admin` tinyint(1), `is_owner` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180402115041')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Company (20180402115053)
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE `customers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `domain` varchar(255), `plan_id` int, `plan_modified_date` datetime, `old_plan_id` varchar(255), `old_plan_modified_date` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180402115053')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Plan (20180402115106)
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE `plans` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `plantype` int, `term` int) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180402115106')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Projects (20180402115131)
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE `projects` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `description` varchar(255), `customer_id` varchar(255), `type` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180402115131')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UsersToProjects (20180402123100)
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE `users_to_projects` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `project_id` int, `user_id` int) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180402123100')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-04-03 14:11:37', '2018-04-03 14:11:37')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('7864839756650184315')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-03 15:11:53 +0100
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 27ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:11:58 +0100
+Processing by UsersController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (35.6ms)
+  Rendered users/new.html.erb within layouts/application (39.1ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for #<User:0x00007fa338444048>
+Did you mean?  first_name
+               first_name=
+               first_name?):
+    1: <%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    2: <p>
+    3:   <%= myVar.label 'First Name' %></br>
+    4: <%= myVar.text_field :firstname%>
+    5: </p>
+    6: <p>
+    7:   <%= myVar.label 'Last Name' %></br>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb__3922528038558861092_70169517371660'
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3922528038558861092_70169517371660'
+app/views/users/new.html.erb:10:in `_app_views_users_new_html_erb__94265651607308039_70169517424120'
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:14:16 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (9.1ms)
+  Rendered users/new.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for #<User:0x00007fa3384e8b98>
+Did you mean?  first_name
+               first_name=
+               first_name?):
+    1: <%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    2: <p>
+    3:   <%= myVar.label 'First Name' %></br>
+    4: <%= myVar.text_field :firstname%>
+    5: </p>
+    6: <p>
+    7:   <%= myVar.label 'Last Name' %></br>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb__3922528038558861092_70169500438280'
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__3922528038558861092_70169500438280'
+app/views/users/new.html.erb:10:in `_app_views_users_new_html_erb__94265651607308039_70169500517240'
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:15:42 +0100
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (13.4ms)
+  Rendered users/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 223ms (Views: 194.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:15:59 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s7nuNfajJuMtvVEdJexOAiZPhOt3w9Af8X8towVNvQ6FY08eBq0fCXl8lGObxRv/m3O9wQ1M1MSKZYK4hYk/TA==", "user"=>{"firstname"=>"test", "lastname"=>"name", "email"=>"tom@there.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'there.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 2.7ms)
+
+
+  
+NoMethodError (undefined method `name' for nil:NilClass):
+  
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:16:51 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s7nuNfajJuMtvVEdJexOAiZPhOt3w9Af8X8towVNvQ6FY08eBq0fCXl8lGObxRv/m3O9wQ1M1MSKZYK4hYk/TA==", "user"=>{"firstname"=>"test", "lastname"=>"name", "email"=>"tom@there.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'there.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `created_at`, `updated_at`) VALUES ('there.com', 'there.com', 1, '2018-04-03 14:16:51', '2018-04-03 14:16:51')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'tom@there.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('tom@there.com', '$2a$10$EvD9ybo8n.dRDvMcuxxOcOyW0FZIHp39QcLk4ovHgxAwCyOcQqZRC', 'test', 'name', 1, 1, 1, '2018-04-03 14:16:51', '2018-04-03 14:16:51')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 77ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:16:51 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:19:07 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J2kkMFngAF3bRUcqaLMNaXpwMx1lz8QFrK68LQK/NBURs4Ubqe45t4+EglTWmliUx0wKNx9AwN7XtBM2gnu2Vw==", "user"=>{"firstname"=>"Marc", "lastname"=>"Concannon", "email"=>"marcconcannon@tmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'tmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('tmail.com', 'tmail.com', 1, '2018-04-03 00:00:00', '2018-04-03 14:19:17', '2018-04-03 14:19:17')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marcconcannon@tmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marcconcannon@tmail.com', '$2a$10$pvaTggz1ofzDOw46r7gHquCx.uUGPdmTyPru7jaroegEenU6qrOku', 'Marc', 'Concannon', 2, 1, 1, '2018-04-03 14:19:17', '2018-04-03 14:19:17')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 105ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:19:17 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (8.6ms)
+  Rendered users/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:29:54 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 29ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:30:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+9UdPg5eEwUJ8JCEU7iHGIljqAJ3N7J5XfqWXrQn2g3ND7wV/lAq710xVfrtkdLlNF+RKA24tqIm4DlFNONYTw==", "user"=>{"firstname"=>"marc", "lastname"=>"oreilly", "email"=>"TEst@there.ie", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'there.ie' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('there.ie', 'there.ie', 1, '2018-04-03 00:00:00', '2018-04-03 14:30:09', '2018-04-03 14:30:09')[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'TEst@there.ie' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('test@there.ie', '$2a$10$bVAzx1JY5HJa0QwzAtP3dOs7VUMPGJ0ZTJgN0ZihpH3yS.ac9MpUa', 'marc', 'oreilly', 3, 1, 1, '2018-04-03 14:30:09', '2018-04-03 14:30:09')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 95ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 15:30:09 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:36:20 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `getCustomer' for #<Class:0x00007fbe58b86c58>):
+  
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:36:55 +0100
+  
+SyntaxError (/Users/marcconcannon/ruby_projects/railsProjects/myApp/app/controllers/users_controller.rb:16: syntax error, unexpected '!', expecting keyword_end
+...tomer.getCustomer(user_params)!
+...                              ^):
+  
+app/controllers/users_controller.rb:16: syntax error, unexpected '!', expecting keyword_end
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:51:40 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `getCustomer' for #<Class:0x00007fbe5c60ad98>):
+  
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:52:12 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `getCustomer' for #<Class:0x00007fbe5c7b1a70>):
+  
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:54:13 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `getCustomer' for #<Class:0x00007fbe5f099370>):
+  
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 15:56:12 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `getCustomer' for #<Class:0x00007fbe57defba8>):
+  
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:00:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/models/customer.rb:5:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:01:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:7:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:03:24 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'marc.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('marc.com', 'marc.com', 1, '2018-04-03 00:00:00', '2018-04-03 15:03:24', '2018-04-03 15:03:24')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 3.0ms)
+
+
+  
+NameError (undefined local variable or method `flash' for #<Class:0x00007fbe5ceaab60>):
+  
+app/models/customer.rb:18:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:03:54 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5iYIWGOeo4rUfBV8spZPvbgprbTf1DmSBHNYmJ6QtQtQjkKkYBDZH+QNStM4wzDS9yfnKnwVD0zC2J54r7Alg==", "user"=>{"firstname"=>"boom", "lastname"=>"boom", "email"=>"marc@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'marc.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marc@marc.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marc@marc.com', '$2a$10$nr/rfNRgacGfiohDxYEDLe7w7xVB4SQVzSYlovdxW2dJwkYMBfHXi', 'boom', 'boom', 4, 1, 1, '2018-04-03 15:03:54', '2018-04-03 15:03:54')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 96ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 16:03:54 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.1ms)
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:04:35 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hMEAavdKgsB/9hSUBx0/PCv/CTMuceY+AamtJwmfUM2yG6FBB0S7Kis30eq5NGrBlsMwGVT+4uV6swI8iVvSjw==", "user"=>{"firstname"=>"tom", "lastname"=>"tom", "email"=>"tom@marc.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'marc.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'tom@marc.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('tom@marc.com', '$2a$10$kRazMZ3JITMrOB.iOWn0BOvrZGPbjZOBjlHuKRUdjzqD4ESL8xzLG', 'tom', 'tom', 4, 1, 1, '2018-04-03 15:04:35', '2018-04-03 15:04:35')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 68ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 16:04:35 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 16:22:27 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.2ms)
+  Rendered users/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 53ms (Views: 28.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 16:22:45 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EbuWiBH3lHa2KBk3nvlen7OvaU/OoILA7M68ct2coF8nYTej4fmtnOLp3Ekg0AtiDpNQZbQvhhuX1BNpXVgiHQ==", "user"=>{"firstname"=>"teerer", "lastname"=>"erere", "email"=>"rerer@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('gmail.com', 'gmail.com', 1, '2018-04-03 00:00:00', '2018-04-03 15:22:45', '2018-04-03 15:22:45')[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'rerer@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('rerer@gmail.com', '$2a$10$Cporrulmc/B4rSLm7pm8SueVC8q.R5uxnoVunVRiokWmNfQOPFwMi', 'teerer', 'erere', 5, 1, 1, '2018-04-03 15:22:45', '2018-04-03 15:22:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 101ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 16:22:45 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.7ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+

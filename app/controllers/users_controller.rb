@@ -13,19 +13,21 @@ class UsersController < ApplicationController
     # render plain: params[:article].inspect
     # debugger # allows me to step though in server console
     @user = User.new(user_params)
+    @customer = Customer.getCustomer(user_params)
 
-    domain = @user.email.split('@').last
-    if (@customer = Customer.where(domain: domain).first).present?
+    #domain = @user.email.split('@').last
+    #if (@customer = Customer.where(domain: domain).first).present?
 
-    else
-      @customer = Customer.new
-      @customer.name = domain
-      @customer.domain = domain
-      @customer.plan_id = 1
-      if @customer.save
-        flash[:notice] = 'New customer was created BOOM!' # we added an enrty in application GHTML wrapper to use this
-       end
-      end
+    #else
+    #  @customer = Customer.new
+    #  @customer.name = domain
+    #  @customer.domain = domain
+  #    @customer.plan_id = 1
+    #  @customer.plan_modified_date = DateTime.now.to_date
+    #  if @customer.save
+    #    flash[:notice] = 'New customer was created BOOM!' # we added an enrty in application GHTML wrapper to use this
+    #   end
+    #  end
 
     @user.customer = @customer
     @user.is_owner = true

@@ -3,8 +3,8 @@ class Users < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       t.string :email
       t.string :password_digest
-      t.string :first_name
-      t.string :last_name
+      t.string :firstname
+      t.string :lastname
       t.string :avitar
       t.integer :customer_id
       t.boolean :is_admin

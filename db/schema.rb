@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180402123100) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "customers", force: :cascade do |t|
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "domain"
     t.integer "plan_id"
@@ -26,13 +23,13 @@ ActiveRecord::Schema.define(version: 20180402123100) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: :cascade do |t|
+  create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "type"
+    t.integer "plantype"
     t.integer "term"
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "description"
     t.string "customer_id"
@@ -41,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180402123100) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email"
     t.string "password_digest"
     t.string "first_name"
@@ -50,10 +47,11 @@ ActiveRecord::Schema.define(version: 20180402123100) do
     t.integer "customer_id"
     t.boolean "is_admin"
     t.boolean "is_owner"
-    t.datetime "created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users_to_projects", force: :cascade do |t|
+  create_table "users_to_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "project_id"
     t.integer "user_id"
   end
