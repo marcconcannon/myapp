@@ -1,10 +1,12 @@
 class Customer < ApplicationRecord
   has_many :users
+  has_many :projects
   belongs_to :plan
 
-def self.getCustomer(params)
+def self.getCustomer(user_params)
 
-  domain = (params[:email]).split('@').last
+
+  domain = (user_params[:email]).split('@').last
 
   if (@customer = Customer.where(domain: domain).first).present?
 

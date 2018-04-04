@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def new
+    if(logged_in?)
+      redirect_to welcomeNewCustomer_path
+    else
     @user = User.new
+    end
   end
 
   def create
@@ -38,11 +42,19 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = 'User was created BOOM' # we added an enrty in application GHTML wrapper to use this
-      redirect_to signup_path
+      session[:user_id] = @user.id
+      session[:boom] = 'boom111'
+      redirect_to welcomeNewCustomer_path
     else
       render :new
    end
   end
+
+  def newCustomer
+    render :welcomeNewCustomer
+
+  end
+
 
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)

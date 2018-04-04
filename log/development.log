@@ -2127,3 +2127,1490 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('7864839756650184315', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddUniquenameToProjects (20180403163040)
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE `projects` ADD `description` varchar(255)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7864839756650184315')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('7864839756650184315', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddUniquenameToProjects (20180403163040)
+  [1m[35m (27.6ms)[0m  [1m[35mALTER TABLE `projects` ADD `title_unique` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180403163040')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7864839756650184315')[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-03 17:35:58 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 20ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-03 17:36:01 +0100
+Processing by UsersController#new as HTML
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (19.9ms)
+  Rendered users/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 232ms (Views: 200.5ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:36:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:8:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:36:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:8:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:37:48 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/customer.rb:8:in `[]'
+app/models/customer.rb:8:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:39:02 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/customer.rb:9:in `[]'
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:53:56 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 1.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/customer.rb:9:in `[]'
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:54:19 +0100
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/customer.rb:9:in `[]'
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:56:37 +0100
+  
+SyntaxError (/Users/marcconcannon/ruby_projects/railsProjects/myApp/app/controllers/users_controller.rb:16: syntax error, unexpected '}', expecting =>
+...tCustomer({user_params[:email]})
+...                              ^):
+  
+app/controllers/users_controller.rb:16: syntax error, unexpected '}', expecting =>
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:59:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-03 17:59:50 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lhvo0K6xDJHyNUxLEKMpvtNBxvElqTsDPgDyQ1lEtKmgwUn7Xr81e6b0iTWuinxDbn3/218mP9hFGl1Y2YA26w==", "user"=>{"firstname"=>"boom", "lastname"=>"boomer", "email"=>"marc@themail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started GET "/" for 127.0.0.1 at 2018-04-04 14:13:15 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcconcannon/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (13.4ms)
+Completed 200 OK in 39ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-04-04 14:13:18 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:13:20 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (26.6ms)
+  Rendered users/new.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 309ms (Views: 304.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:13:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4pWdlw8d48+4uhfnn+lMSVf4PFBWHM+sZUU9ur2zh7nUTzy8/xPaJex70pkhwBm06sQFeiyTy3ceX5KhPXcF+w==", "user"=>{"firstname"=>"jane", "lastname"=>"doe", "email"=>"jane@doe.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:19:37 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4pWdlw8d48+4uhfnn+lMSVf4PFBWHM+sZUU9ur2zh7nUTzy8/xPaJex70pkhwBm06sQFeiyTy3ceX5KhPXcF+w==", "user"=>{"firstname"=>"jane", "lastname"=>"doe", "email"=>"jane@doe.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:15:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:23:19 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4pWdlw8d48+4uhfnn+lMSVf4PFBWHM+sZUU9ur2zh7nUTzy8/xPaJex70pkhwBm06sQFeiyTy3ceX5KhPXcF+w==", "user"=>{"firstname"=>"jane", "lastname"=>"doe", "email"=>"jane@doe.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:9:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:23:35 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4pWdlw8d48+4uhfnn+lMSVf4PFBWHM+sZUU9ur2zh7nUTzy8/xPaJex70pkhwBm06sQFeiyTy3ceX5KhPXcF+w==", "user"=>{"firstname"=>"jane", "lastname"=>"doe", "email"=>"jane@doe.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/customer.rb:11:in `getCustomer'
+app/controllers/users_controller.rb:16:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:23:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4pWdlw8d48+4uhfnn+lMSVf4PFBWHM+sZUU9ur2zh7nUTzy8/xPaJex70pkhwBm06sQFeiyTy3ceX5KhPXcF+w==", "user"=>{"firstname"=>"jane", "lastname"=>"doe", "email"=>"jane@doe.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'doe.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('doe.com', 'doe.com', 1, '2018-04-04 00:00:00', '2018-04-04 13:23:49', '2018-04-04 13:23:49')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'jane@doe.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('jane@doe.com', '$2a$10$eoGfK03vkjzGe3iEeU0lGeSmo0dA1CKsgLqW2AoZOYi396AF3lpyS', 'jane', 'doe', 6, 1, 1, '2018-04-04 13:23:49', '2018-04-04 13:23:49')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 146ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:23:49 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:25:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QWO5W9dwJ5VfDadsCSBahCS/959/OSdhvVPqk3vIEFR3uRhwJ34efwvMYhK3CQ95mYPOtQW2I7rGSUWI+wySFg==", "user"=>{"firstname"=>"fff", "lastname"=>"ffff", "email"=>"tom@doe.ie", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (2.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'doe.ie' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('doe.ie', 'doe.ie', 1, '2018-04-04 00:00:00', '2018-04-04 13:25:00', '2018-04-04 13:25:00')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'tom@doe.ie' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('tom@doe.ie', '$2a$10$3PE.BTeU8VJDjWTmymSiuuzTIQdiR/xCvq/56kmUfcJgiYTJVLbfG', 'fff', 'ffff', 7, 1, 1, '2018-04-04 13:25:00', '2018-04-04 13:25:00')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 98ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:25:00 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:37:32 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IAhL5O60//JgThutJ51fr3Aa9BKKoL2WHClHyDTXtPIW0urPHrrGGDSP3tOZtApSzSbNOPAvuU1nM+jTtBM2sA==", "user"=>{"firstname"=>"tom", "lastname"=>"ommm", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` IS NULL ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `customers` (`plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES (1, '2018-04-04 00:00:00', '2018-04-04 13:37:32', '2018-04-04 13:37:32')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 68ms (Views: 20.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:37:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"euDvKFiGXgkuxEmdqt4YRbFSXOT/gm0GK2BctwLBbz5MOk4DqIhn43oFjOMU9024DG5lzoUNad1QevOsggXtfA==", "user"=>{"firstname"=>"tom", "lastname"=>"ommm", "email"=>"marc@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (2.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marc@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marc@gmail.com', '$2a$10$t.122JiuN.oJ2JYck8IbgeipB9Rlam6OgxqrdiEPdq243OB/qDKJ.', 'tom', 'ommm', 5, 1, 1, '2018-04-04 13:37:49', '2018-04-04 13:37:49')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 3.7ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00007fce59439ea8>
+Did you mean?  @user):
+  
+app/controllers/users_controller.rb:41:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:38:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"euDvKFiGXgkuxEmdqt4YRbFSXOT/gm0GK2BctwLBbz5MOk4DqIhn43oFjOMU9024DG5lzoUNad1QevOsggXtfA==", "user"=>{"firstname"=>"tom", "lastname"=>"ommm", "email"=>"marc@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marc@gmail.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 140ms (Views: 22.0ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:38:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G9qOg8cKTrPP6/h+xLEpcOm7FZv8L6tbpMkDnzx/Sl0tAC+oNwR3WZsqPQB6mHyNVIcssYagr4Df06yEvLvIHw==", "user"=>{"firstname"=>"tom", "lastname"=>"ommm", "email"=>"marc@gmails.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmails.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('gmails.com', 'gmails.com', 1, '2018-04-04 00:00:00', '2018-04-04 13:38:17', '2018-04-04 13:38:17')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marc@gmails.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marc@gmails.com', '$2a$10$b9X.4YG4eF97jmw2sGKk.uhW5aaD20RNBfU87XzCPZrZE/3uB/0Du', 'tom', 'ommm', 9, 1, 1, '2018-04-04 13:38:17', '2018-04-04 13:38:17')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 74ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:38:17 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:40:28 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ODh/So+6hznPHJVVmXzfJ3jqBAMmU/mz2U8/ynoyVR0O4t5hf7S+05vdUCsnVYraxdY9KVzc/WiiVZDR+vbXXw==", "user"=>{"firstname"=>"dddd", "lastname"=>"ttttt", "email"=>"marcccc@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marcccc@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marcccc@gmail.com', '$2a$10$hiBitewP.soo82iq/o6bP.ezNC/TEewNcj/x6Ba7p7BbeIGHQNWnm', 'dddd', 'ttttt', 5, 1, 1, '2018-04-04 13:40:28', '2018-04-04 13:40:28')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 130ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:40:28 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.5ms)
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:44:59 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UikciGcdzzz0L7dIHyu1qH2jC7Mi8RWr7281uG2KHOpk872jlxP21qDucjahAuBVwJ8ymVh+EXCUdZqj7U6eqA==", "user"=>{"firstname"=>"ffff", "lastname"=>"fggd", "email"=>"sdfsdfsdf@hdd.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'hdd.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Load (0.3ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `customers` (`name`, `domain`, `plan_id`, `plan_modified_date`, `created_at`, `updated_at`) VALUES ('hdd.com', 'hdd.com', 1, '2018-04-04 00:00:00', '2018-04-04 13:44:59', '2018-04-04 13:44:59')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'sdfsdfsdf@hdd.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('sdfsdfsdf@hdd.com', '$2a$10$HqL6s6niUYIEo5A6.RhBeelC.Lq5c5fEmxUDaS2nOnN4hxYBelRnW', 'ffff', 'fggd', 10, 1, 1, '2018-04-04 13:44:59', '2018-04-04 13:44:59')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/signup
+Completed 302 Found in 98ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:44:59 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 14:45:47 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 27ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 14:45:56 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hf/r5l7Sp4SiuzTxKVYx7/1W+5aIZWoNf4+T15KHfeArJUrNrtyebvZ68Y+Xf2QSQGrCvPLqbtYElTzMEkP/og==", "user"=>{"firstname"=>"sedqwd", "lastname"=>"qweqwed", "email"=>"qweqwe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'qweqwe@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('qweqwe@gmail.com', '$2a$10$d5bGrQE6LJT4lnJrTUT6YOVzyb4Emi9uLgB1AqrlRSVb3oMdeclHy', 'sedqwd', 'qweqwed', 5, 1, 1, '2018-04-04 13:45:56', '2018-04-04 13:45:56')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/welcomeNewCustomer
+Completed 302 Found in 87ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 14:45:56 +0100
+Processing by UsersController#newCustomer as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template users/welcomeNewCustomer, application/welcomeNewCustomer with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/marcconcannon/ruby_projects/railsProjects/myApp/app/views"
+):
+  
+app/controllers/users_controller.rb:50:in `newCustomer'
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 14:48:20 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 14:48:49 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 14:57:56 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/project" for 127.0.0.1 at 2018-04-04 14:57:58 +0100
+  
+LoadError (Unable to autoload constant ProjectsController, expected /Users/marcconcannon/ruby_projects/railsProjects/myApp/app/controllers/projects_controller.rb to define it):
+  
+activesupport (5.1.6) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.1.6) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.6) lib/active_support/dependencies.rb:583:in `get'
+activesupport (5.1.6) lib/active_support/dependencies.rb:614:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:99:in `binary_params_for?'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 14:58:36 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262076318200'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:02:12 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@projects, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262075295440'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:02:22 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262070227320'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:03:04 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (112.2ms)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `projects_path' for #<#<Class:0x00007fce58b84b50>:0x00007fce58b7d760>
+Did you mean?  project_path):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262114234960'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:03:38 +0100
+  
+LoadError (Unable to autoload constant ProjectsController, expected /Users/marcconcannon/ruby_projects/railsProjects/myApp/app/controllers/projects_controller.rb to define it):
+  
+activesupport (5.1.6) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.1.6) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.6) lib/active_support/dependencies.rb:583:in `get'
+activesupport (5.1.6) lib/active_support/dependencies.rb:614:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:99:in `binary_params_for?'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
+actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:04:00 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (106.0ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `projects_path' for #<#<Class:0x00007fce57755328>:0x00007fce5774c610>
+Did you mean?  project_path):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262103652040'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:25:14 +0100
+  
+ActionController::RoutingError (uninitialized constant ProjectController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:25:38 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (123.5ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `projects_path' for #<#<Class:0x00007fce54c52dd8>:0x00007fce54c50498>
+Did you mean?  project_path):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262081100720'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:26:36 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/project"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:26:47 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (140.4ms)
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `projects_path' for #<#<Class:0x00007fce5941aa80>:0x00007fce59418a78>
+Did you mean?  project_path):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262118734140'
+Started GET "/project/new" for 127.0.0.1 at 2018-04-04 15:26:52 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/project/new"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/project" for 127.0.0.1 at 2018-04-04 15:27:07 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (112.0ms)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `projects_path' for #<#<Class:0x00007fce5941aa80>:0x00007fce5922a6f8>
+Did you mean?  project_path):
+    1: <h1>Create your Project </h1>
+    2: 
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :name%>
+  
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262117718040'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:28:38 +0100
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 28ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:28:45 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/projects"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:50:45 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/projects"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:50:50 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 64ms (Views: 29.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:54:36 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 40ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:54:40 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/projects"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:55:29 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x6aYNiky/1KyK/jCEKKy7HuOENk4qZRK3I+qpf9uj3bxfDkd2TzGuObqPbyui+cRxrIp80ImkJGnlQW+f6oNNA==", "project"=>{"name"=>"dddd", "description"=>"ddddd"}, "commit"=>"Create"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/projects_controller.rb:24:in `project_params'
+app/controllers/projects_controller.rb:11:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:56:04 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x6aYNiky/1KyK/jCEKKy7HuOENk4qZRK3I+qpf9uj3bxfDkd2TzGuObqPbyui+cRxrIp80ImkJGnlQW+f6oNNA==", "project"=>{"name"=>"dddd", "description"=>"ddddd"}, "commit"=>"Create"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 2.3ms)
+
+
+  
+NoMethodError (undefined method `title' for #<Project:0x00007fce59002718>):
+  
+app/controllers/projects_controller.rb:13:in `create'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:57:44 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Project:0x00007fce5430ee20>):
+    3: <%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+    4: <p>
+    5:   <%= myVar.label 'Title' %></br>
+    6: <%= myVar.text_field :title%>
+    7: </p>
+    8: <p>
+    9:   <%= myVar.label 'Descscription' %></br>
+  
+app/views/projects/new.html.erb:6:in `block in _app_views_projects_new_html_erb___458709535523519100_70262118927860'
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb___458709535523519100_70262118927860'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:58:33 +0100
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 217ms (Views: 173.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 15:58:36 +0100
+Processing by ProjectsController#new as HTML
+  [1m[35m (2.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 11.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:58:40 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xa6xdWJtZT1XC79sFB4K1xrstK9MLHEF/ItSFUDwoylrdBBekmNc1wPKehKqN18qp9CNhTajdd6Hkf0OwDQhaw==", "project"=>{"title"=>"sss", "description"=>"dddd"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 42ms (Views: 28.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:58:44 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tLhF+Bfj1XjZQojLCgUtaeCHb0npZveEiROMnCAlbQqCYuTT5+3sko2DTbW0LHiUXbtWY5Pp81/yCSOHoOHvSA==", "project"=>{"title"=>"sss", "description"=>"dddd"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 21.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:58:45 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7TMFIa9vqcfFMcl4pPWy0T9aLE7hkNkwtGEdrPPJbL3b6aQKX2GQLZHwDAYa3OcsgmYVZJsf3evPe7K3cw3u/w==", "project"=>{"title"=>"sss", "description"=>"dddd"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:58:45 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DH5Jerer0nF2CvVxESjUpiLRdtp6SeyHyJdP8tEsI346pOhRR6XrmyLLMA+vAYFbn+1P8ADG6FyzjeDpUeihPA==", "project"=>{"title"=>"sss", "description"=>"dddd"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-04-04 15:59:17 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 15:59:18 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (7.5ms)
+  Rendered users/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-04-04 15:59:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/pk2nX9Ay+J7vY5g46y0MR4omRIaDjda2upyiFAc+F7IQ5e2j07yCC98Sx5dheHMoxSgOGCBM4Gh8N2T0Nh6HA==", "user"=>{"firstname"=>"marc", "lastname"=>"concannon", "email"=>"marcconcannon@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`domain` = 'gmail.com' ORDER BY `customers`.`id` ASC LIMIT 1[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT  `plans`.* FROM `plans` WHERE `plans`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = 'marcconcannon@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `password_digest`, `firstname`, `lastname`, `customer_id`, `is_admin`, `is_owner`, `created_at`, `updated_at`) VALUES ('marcconcannon@gmail.com', '$2a$10$1kNLCjvks6T943uwC7Jw3.RLSKb/MKARvfupoVnKd4WJLNiaFXMki', 'marc', 'concannon', 5, 1, 1, '2018-04-04 14:59:33', '2018-04-04 14:59:33')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/welcomeNewCustomer
+Completed 302 Found in 107ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 15:59:33 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-04-04 15:59:35 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 15:59:39 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TiAbcBOv/COS2YUgia4PODxg0IbUCphBOt1QO/c1V9SVSDMMfazfSH3ahWLiELy/WTjBpjmxVPVZ3jNCCSgKjg==", "project"=>{"title"=>"ddd", "description"=>"dddd"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:05:07 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3VZMvMjQHCvSR3X0U3sg14yCDpFrFjUWYVmibZCw6Sdr/gZAy15mvuI2KlvZLl+4w4xED8jXA8in8mSNoZB5g==", "project"=>{"title"=>"ssss", "description"=>"ssss"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 28.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:05:23 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2fjfdge90jQrubuQfG39EvGVHpURaJDn3yeQEd6tOSnvIn5d97Pr3n94fu7CRKjvTKknv2vnlDykPT8KXmm7aw==", "project"=>{"title"=>"ssssddd", "description"=>"ssss"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:09:21 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ggHW5tJxpYiPRxl4djR3qI10cl0551JiYVFrfRid82C023fNIn+cYtuG3AbIHSJVMEhLd0NoVrkaS8RmmFlxIg==", "project"=>{"title"=>"ssssdddddd", "description"=>"sssswww"}, "commit"=>"Create"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `company' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:12:in `create'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 16:10:40 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 16:11:48 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `company' for #<User:0x00007fdf3cabf608>):
+    11: </p>
+    12: 
+    13: 
+    14: <%= "the compane name is #{@user.company.name} " %>
+    15: 
+    16: <%= myVar.submit (@project.new_record? ? "Create" : "Update") %>
+    17: <% end %>
+  
+app/views/projects/new.html.erb:14:in `block in _app_views_projects_new_html_erb__3776199200884946837_70298386166300'
+app/views/projects/new.html.erb:3:in `_app_views_projects_new_html_erb__3776199200884946837_70298386166300'
+Started GET "/projects/" for 127.0.0.1 at 2018-04-04 16:12:20 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  Rendered projects/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:13:07 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3XLUHS2kD1H6JfVoDWZDexR+PiUK00J+eXcA4yE5gzDrqHU23ao2u67kMBazTxaGqUIHD3BcRqUCba/4of0Bcg==", "project"=>{"title"=>"xxxx", "description"=>"eeeeee"}, "commit"=>"Create"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `customer' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:12:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:15:47 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3XLUHS2kD1H6JfVoDWZDexR+PiUK00J+eXcA4yE5gzDrqHU23ao2u67kMBazTxaGqUIHD3BcRqUCba/4of0Bcg==", "project"=>{"title"=>"xxxx", "description"=>"eeeeee"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.5ms)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/projects_controller.rb:13:in `+'
+app/controllers/projects_controller.rb:13:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:16:52 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3XLUHS2kD1H6JfVoDWZDexR+PiUK00J+eXcA4yE5gzDrqHU23ao2u67kMBazTxaGqUIHD3BcRqUCba/4of0Bcg==", "project"=>{"title"=>"xxxx", "description"=>"eeeeee"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_xxxx' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 56ms (Views: 13.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-04-04 16:19:10 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  Rendered projects/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 49ms (Views: 26.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:19:14 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EEOP4AWUUyZjsvKg/d2fioFmGcwniaIiGjGmHK62jpEmmS7L9ZpqzDdzN95D9Mp3PFog5l0GpvlhKwkHLnIM0w==", "project"=>{"title"=>"ddd", "description"=>"sasdas"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_ddd' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 22ms (Views: 14.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:19:21 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e4ld3rDEb1CamrAqKYnK+NhJve8xE02AEo2PxFCcEfdNU/z1QMpWus5bdVSXoJ8FZXWExUucSVtplyDf0FiTtQ==", "project"=>{"title"=>"ddd", "description"=>"sasdas"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_ddd' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:21:32 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlryphlJCGZIkJDThFl/S1fGc2C6NgaQV6OPFHmeRSj0gFON6UcxjBxRVa06cCq26vpKSsC5AkssuSAP+VrHag==", "project"=>{"title"=>"ddd", "description"=>"sasdas"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_ddd' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 70ms (Views: 19.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:22:00 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nvcGpKmC5aZ3QE76PwW7uY3cmOr4V488mV0TYnMNgl6oLaePWYzcTCOBi4SBLO5EMOChwILYi+fiR7x588kAHA==", "project"=>{"title"=>"dddfff", "description"=>"sasdassss"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_dddfff' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:23:25 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0Qjj+Ip9sP9LbwIJxK4oV+Eja1cWaCpBjF+k3nn9ENrn0kLTenOJFR+ux3d6h32qXB9SfWznLpr3RQvF+TmSmA==", "project"=>{"title"=>"dddfff", "description"=>"sasdassss"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 60ms (Views: 20.9ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:32:59 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QUJvRN6IMab2bfXUk0QFbPNCn6TJekTyqJmrsMc5Fzd3mM5vLoYITKKsMKotbVCRTn6mjrP1QCnTgwSrR/2VdQ==", "project"=>{"title"=>"dddfff", "description"=>"sasdassss"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `customer=' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:14:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:33:18 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QUJvRN6IMab2bfXUk0QFbPNCn6TJekTyqJmrsMc5Fzd3mM5vLoYITKKsMKotbVCRTn6mjrP1QCnTgwSrR/2VdQ==", "project"=>{"title"=>"dddfff", "description"=>"sasdassss"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('dddfff', 'sasdassss', '5', '2018-04-04 15:33:18', '2018-04-04 15:33:18', 'un_5_dddfff')[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3c109a00>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started GET "/projects" for 127.0.0.1 at 2018-04-04 16:35:50 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  Rendered projects/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 76ms (Views: 36.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:35:56 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kwhcCjUaybdnfijVrOSZrGhHX+gAOhjVoF0o6Bbk/52l0v0hxRTwXTO/7asSzcxR1Xtmwnq1HA7bR4fzliB93w==", "project"=>{"title"=>"test", "description"=>"test"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_test' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('test', 'test', '5', '2018-04-04 15:35:56', '2018-04-04 15:35:56', 'un_5_test')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 4.5ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3cb17f10>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:36:00 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kwhcCjUaybdnfijVrOSZrGhHX+gAOhjVoF0o6Bbk/52l0v0hxRTwXTO/7asSzcxR1Xtmwnq1HA7bR4fzliB93w==", "project"=>{"title"=>"test", "description"=>"test"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_test' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('test', 'test', '5', '2018-04-04 15:36:00', '2018-04-04 15:36:00', 'un_5_test')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3d880260>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:36:04 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kwhcCjUaybdnfijVrOSZrGhHX+gAOhjVoF0o6Bbk/52l0v0hxRTwXTO/7asSzcxR1Xtmwnq1HA7bR4fzliB93w==", "project"=>{"title"=>"test", "description"=>"test"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_test' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('test', 'test', '5', '2018-04-04 15:36:04', '2018-04-04 15:36:04', 'un_5_test')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3c5635b0>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started GET "/projects" for 127.0.0.1 at 2018-04-04 16:37:53 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  Rendered projects/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 64ms (Views: 38.1ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:37:58 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C1JX7Y6MU73yovJC6tPI71uDV2mDGNxU43hSGsG/86I9iPbGfoJqV6ZjNzxU+p0S5r9uQ/mX2I+YYv0BQXtx4A==", "project"=>{"title"=>"test", "description"=>"test"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_test' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('test', 'test', '5', '2018-04-04 15:37:58', '2018-04-04 15:37:58', 'un_5_test')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3cec95a0>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:41:08 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C1JX7Y6MU73yovJC6tPI71uDV2mDGNxU43hSGsG/86I9iPbGfoJqV6ZjNzxU+p0S5r9uQ/mX2I+YYv0BQXtx4A==", "project"=>{"title"=>"test", "description"=>"TEST"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_test' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('test', 'TEST', '5', '2018-04-04 15:41:08', '2018-04-04 15:41:08', 'un_5_test')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 3.7ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3cf73488>):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 16:41:53 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 31ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 16:43:35 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+Redirected to http://localhost:3000/welcomeNewCustomer
+Completed 302 Found in 11ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 16:43:35 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-04 16:43:39 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+Redirected to http://localhost:3000/welcomeNewCustomer
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/welcomeNewCustomer" for 127.0.0.1 at 2018-04-04 16:43:40 +0100
+Processing by UsersController#newCustomer as HTML
+  Rendering users/welcomeNewCustomer.html.erb within layouts/application
+  Rendered users/welcomeNewCustomer.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2018-04-04 16:43:43 +0100
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  Rendered projects/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 46ms (Views: 30.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2018-04-04 16:43:59 +0100
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qDI1SZ+2CfWhwL9W3mnw8ciBuLrQIEutY9pJAmfehsZzWh018bUqnk7DvxS110N2rdmpmj2bhxkA2Sp7mcPbnA==", "project"=>{"title"=>"TEST", "description"=>"TEST"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  `customers`.* FROM `customers` WHERE `customers`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `projects` WHERE `projects`.`title_unique` = BINARY 'UN_5_TEST' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `projects` (`title`, `description`, `customer_id`, `created_at`, `updated_at`, `title_unique`) VALUES ('TEST', 'TEST', '5', '2018-04-04 15:43:59', '2018-04-04 15:43:59', 'un_5_test')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `article_path' for #<ProjectsController:0x00007fdf3c5c8e88>):
+  
+app/controllers/projects_controller.rb:18:in `create'

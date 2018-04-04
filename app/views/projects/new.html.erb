@@ -1,0 +1,24 @@
+<h1>Create your Project </h1>
+
+<% if @user.errors.full_messages.any? %>
+  <% @user.errors.full_messages.each do |error_message| %>
+    <%= error_message if @user.errors.full_messages.first == error_message %> <br />
+  <% end %>
+<% end %>
+
+
+<%= form_for(@project, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+<p>
+  <%= myVar.label 'Title' %></br>
+<%= myVar.text_field :title%>
+</p>
+<p>
+  <%= myVar.label 'Descscription' %></br>
+<%= myVar.text_field :description%>
+</p>
+
+
+<%= "the compane name is #{@user.customer.name} " %>
+
+<%= myVar.submit (@project.new_record? ? "Create" : "Update") %>
+<% end %>
